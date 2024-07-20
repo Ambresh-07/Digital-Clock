@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+</head>
+<link rel="stylesheet" href="../css/style.css">
+
+<body>
+    <div class="container">
+        <h2 class="heading">Digital Clock</h2>
+        <div class="clock">
+            <nav>
+                <h2><a href="#">Generate OTP</a></h2>
+                <div class="logo">logo</div>
+            </nav>
+            <div class="timer">
+                <h2><span id="hour">00</span>:<span id="min">00</span>:<span id="sec">00</span></h2>
+            </div>
+            <form action="#" method="get">
+
+                <div class="Otp">
+                    <label for="" class="genotp">your dynamic OTP is : <span id="myotp">0000</span></label>
+                    <div class="myotp">
+                        <input type="text" name="verifyOtp" id="verifyOtp" value="" maxlength="4" id="pin"
+                            pattern="\d{4}" placeholder="Enter You OTP">
+
+
+
+                    </div>
+                </div>
+                <button class="submit" onclick="getvalues()">Verify OTP</button>
+            </form>
+
+
+        </div>
+
+    </div>
+
+    <script>
+        let otpSpan = document.getElementById("myotp");
+        let genotp = document.querySelector('a');
+        // const button = document.querySelector('button');
+        genotp.addEventListener('click', () => {
+            let random = Math.floor(1000 + Math.random() * 9000);
+            console.log("random otp : ", random)
+            otpSpan.innerHTML = random;
+
+        })
+
+
+        const letestTime = setInterval(function () {
+            let date = new Date();
+
+            let hours = date.getHours();
+            let min = date.getMinutes();
+            let sec = date.getSeconds();
+
+            document.getElementById('hour').innerHTML = hours;
+            document.getElementById('min').innerHTML = min;
+            document.getElementById('sec').innerHTML = sec;
+
+        }, 1000)
+        // letestTime();
+
+
+        let random = Math.floor(1000 + Math.random() * 9000);
+        console.log("random otp : ", random)
+        otpSpan.innerHTML = random;
+
+        function getvalues() {
+            let val = document.getElementById('verifyOtp').value;
+
+            if(val==random){
+                // alert.title("otp verification")
+                alert(" validation successfully done...")
+            }else{
+                alert(" Wrong OTP")
+
+            }
+           
+        }
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
